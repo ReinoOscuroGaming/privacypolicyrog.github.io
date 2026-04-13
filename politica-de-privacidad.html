@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidad — Reino Oscuro Gaming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #E8A020;
+    --gold-dim: #9B6A14;
+    --purple: #7B35C8;
+    --purple-dim: #3D1A66;
+    --purple-glow: #9B50E8;
+    --bg-deep: #050407;
+    --bg-mid: #0C0A12;
+    --bg-card: #100E1A;
+    --border: rgba(123, 53, 200, 0.25);
+    --border-gold: rgba(232, 160, 32, 0.3);
+    --text: #C8C0D8;
+    --text-dim: #7A7288;
+    --white: #F0EBF8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.85;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 40% at 85% 10%, rgba(123,53,200,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 35% at 10% 90%, rgba(232,160,32,0.05) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .noise {
+    position: fixed;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  header {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 3.5rem 2rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo-wrap {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-wrap img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(123,53,200,0.5));
+    opacity: 0.92;
+  }
+
+  .site-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 30px rgba(232,160,32,0.3);
+    line-height: 1;
+  }
+
+  .site-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+  }
+
+  .page-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.12em;
+    margin-top: 2rem;
+    text-transform: uppercase;
+  }
+
+  .update-badge {
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 0.2rem 0.9rem;
+    border: 1px solid var(--border-gold);
+    border-radius: 2px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--gold-dim);
+    font-family: 'Cinzel', serif;
+  }
+
+  .container {
+    position: relative;
+    z-index: 5;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  .intro-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    padding: 1.5rem 2rem;
+    margin-bottom: 3rem;
+    border-radius: 0 0 4px 4px;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+
+  .toc {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--purple);
+    padding: 1.5rem 2rem;
+    margin-bottom: 3.5rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .toc-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--purple-glow);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+  }
+
+  .toc ol li {
+    counter-increment: toc;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.2rem 0;
+    font-size: 0.88rem;
+  }
+
+  .toc ol li::before {
+    content: counter(toc, upper-roman);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: var(--gold-dim);
+    min-width: 1.8rem;
+  }
+
+  .toc ol li a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .toc ol li a:hover { color: var(--gold); }
+
+  .section {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.15em;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.06em;
+  }
+
+  .divider {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border-gold), transparent);
+  }
+
+  p { margin-bottom: 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  ul, ol {
+    margin: 0.8rem 0 1rem 0;
+    padding-left: 1.4rem;
+  }
+
+  li { margin-bottom: 0.4rem; }
+
+  .highlight-box {
+    background: rgba(123,53,200,0.08);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--purple-glow);
+    padding: 1rem 1.4rem;
+    margin: 1.2rem 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.93rem;
+  }
+
+  .warn-box {
+    background: rgba(232,160,32,0.06);
+    border: 1px solid var(--border-gold);
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.4rem;
+    margin: 1.2rem 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.93rem;
+  }
+
+  .rights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.2rem 0;
+  }
+
+  .right-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1rem 1.2rem;
+    border-radius: 4px;
+  }
+
+  .right-card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--purple-glow);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .right-card p {
+    font-size: 0.88rem;
+    color: var(--text);
+    margin: 0;
+  }
+
+  strong { color: var(--white); font-weight: 400; }
+
+  a { color: var(--purple-glow); text-decoration: none; border-bottom: 1px solid rgba(155,80,232,0.3); transition: color 0.2s, border-color 0.2s; }
+  a:hover { color: var(--gold); border-color: rgba(232,160,32,0.4); }
+
+  footer {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+  }
+
+  footer span { color: var(--gold-dim); }
+
+  .scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 42px;
+    height: 42px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--purple-glow);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 100;
+    transition: border-color 0.2s, color 0.2s;
+    border-radius: 2px;
+  }
+
+  .scroll-top:hover { border-color: var(--purple-glow); color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .container { padding: 2rem 1.2rem 4rem; }
+    header { padding: 2.5rem 1.2rem 2rem; }
+    .logo-wrap img { width: 70px; height: 70px; }
+    .rights-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<header>
+  <div class="logo-wrap">
+    <img src="logo_rog.png" alt="Reino Oscuro Gaming">
+  </div>
+  <div class="site-name">Reino Oscuro</div>
+  <div class="site-sub">Gaming Community</div>
+  <div class="page-title">Política de Privacidad</div>
+  <div class="update-badge">Última actualización: Abril 2026</div>
+</header>
+
+<div class="container">
+
+  <div class="intro-card">
+    En Reino Oscuro nos tomamos tu privacidad muy en serio. Esta Política de Privacidad explica qué datos recogemos, cómo los utilizamos y qué derechos tienes sobre ellos. Te recomendamos leerla con atención.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Índice de contenidos</div>
+    <ol>
+      <li><a href="#p1">Responsable del tratamiento</a></li>
+      <li><a href="#p2">Datos que recopilamos</a></li>
+      <li><a href="#p3">Finalidad del tratamiento</a></li>
+      <li><a href="#p4">Base legal</a></li>
+      <li><a href="#p5">Cookies y tecnologías similares</a></li>
+      <li><a href="#p6">Compartición de datos con terceros</a></li>
+      <li><a href="#p7">Conservación de datos</a></li>
+      <li><a href="#p8">Tus derechos</a></li>
+      <li><a href="#p9">Seguridad</a></li>
+      <li><a href="#p10">Menores de edad</a></li>
+      <li><a href="#p11">Cambios en esta política</a></li>
+      <li><a href="#p12">Contacto</a></li>
+    </ol>
+  </div>
+
+  <div class="section" id="p1">
+    <div class="section-header">
+      <span class="section-num">I</span>
+      <span class="section-title">Responsable del Tratamiento</span>
+      <span class="divider"></span>
+    </div>
+    <p>El responsable del tratamiento de los datos personales recogidos a través de la plataforma de <strong>Reino Oscuro Gaming</strong> es el equipo administrador de la comunidad, accesible a través de los canales de contacto oficiales indicados en este sitio.</p>
+    <p>Esta Política de Privacidad cumple con el <strong>Reglamento General de Protección de Datos (RGPD)</strong> de la Unión Europea y la Ley Orgánica de Protección de Datos y garantía de los derechos digitales (LOPDGDD) aplicable en España.</p>
+  </div>
+
+  <div class="section" id="p2">
+    <div class="section-header">
+      <span class="section-num">II</span>
+      <span class="section-title">Datos que Recopilamos</span>
+      <span class="divider"></span>
+    </div>
+    <p>Dependiendo del uso que hagas de nuestra plataforma, podemos recopilar los siguientes tipos de datos:</p>
+    <ul>
+      <li><strong>Datos de registro:</strong> nombre de usuario, dirección de correo electrónico y contraseña (almacenada cifrada).</li>
+      <li><strong>Datos de perfil:</strong> avatar, descripción, juegos favoritos y cualquier otra información que decidas añadir voluntariamente.</li>
+      <li><strong>Datos de uso:</strong> publicaciones en el foro, comentarios, historial de navegación dentro de la plataforma e interacciones con el contenido.</li>
+      <li><strong>Datos de compra:</strong> información necesaria para procesar transacciones en la tienda (nombre, dirección de envío, datos de pago gestionados por terceros certificados).</li>
+      <li><strong>Datos técnicos:</strong> dirección IP, tipo de navegador, sistema operativo, páginas visitadas y tiempo de sesión.</li>
+      <li><strong>Cookies:</strong> ficheros de pequeño tamaño que almacenamos en tu dispositivo para mejorar tu experiencia (ver sección V).</li>
+    </ul>
+    <div class="highlight-box">
+      Nunca recopilaremos datos sensibles como información financiera completa, datos de salud, creencias religiosas ni orientación sexual.
+    </div>
+  </div>
+
+  <div class="section" id="p3">
+    <div class="section-header">
+      <span class="section-num">III</span>
+      <span class="section-title">Finalidad del Tratamiento</span>
+      <span class="divider"></span>
+    </div>
+    <p>Utilizamos tus datos exclusivamente para los siguientes fines:</p>
+    <ul>
+      <li>Gestionar tu registro y cuenta de usuario en la plataforma.</li>
+      <li>Permitirte participar en el foro, la sección de comentarios y otros apartados de la comunidad.</li>
+      <li>Procesar pedidos realizados en la tienda y gestionar incidencias.</li>
+      <li>Enviarte comunicaciones relacionadas con tu cuenta o tus pedidos.</li>
+      <li>Enviarte boletines o novedades de la comunidad, únicamente si has dado tu consentimiento explícito.</li>
+      <li>Detectar y prevenir fraudes, abusos o comportamientos que vulneren los Términos de Servicio.</li>
+      <li>Mejorar la plataforma mediante análisis estadísticos anónimos.</li>
+    </ul>
+  </div>
+
+  <div class="section" id="p4">
+    <div class="section-header">
+      <span class="section-num">IV</span>
+      <span class="section-title">Base Legal del Tratamiento</span>
+      <span class="divider"></span>
+    </div>
+    <p>El tratamiento de tus datos se ampara en las siguientes bases legales según el RGPD:</p>
+    <ul>
+      <li><strong>Ejecución de un contrato:</strong> cuando el tratamiento es necesario para prestarte los servicios de la plataforma.</li>
+      <li><strong>Consentimiento:</strong> para el envío de comunicaciones promocionales o el uso de cookies no esenciales.</li>
+      <li><strong>Interés legítimo:</strong> para garantizar la seguridad de la plataforma y prevenir conductas fraudulentas.</li>
+      <li><strong>Obligación legal:</strong> cuando la ley nos exige conservar determinados datos.</li>
+    </ul>
+  </div>
+
+  <div class="section" id="p5">
+    <div class="section-header">
+      <span class="section-num">V</span>
+      <span class="section-title">Cookies y Tecnologías Similares</span>
+      <span class="divider"></span>
+    </div>
+    <p>Nuestra plataforma utiliza cookies propias y de terceros. Existen distintos tipos:</p>
+    <ul>
+      <li><strong>Cookies técnicas o esenciales:</strong> imprescindibles para el funcionamiento básico de la web (sesión de usuario, preferencias). No requieren consentimiento.</li>
+      <li><strong>Cookies analíticas:</strong> nos permiten medir el tráfico y el comportamiento de los usuarios para mejorar el servicio. Requieren tu consentimiento.</li>
+      <li><strong>Cookies de preferencias:</strong> recuerdan tus ajustes (idioma, tema) para personalizar tu experiencia.</li>
+    </ul>
+    <div class="warn-box">
+      Puedes gestionar o rechazar las cookies no esenciales en cualquier momento desde el panel de preferencias de cookies de la web o desde la configuración de tu navegador.
+    </div>
+  </div>
+
+  <div class="section" id="p6">
+    <div class="section-header">
+      <span class="section-num">VI</span>
+      <span class="section-title">Compartición de Datos con Terceros</span>
+      <span class="divider"></span>
+    </div>
+    <p>Reino Oscuro <strong>no vende ni alquila</strong> tus datos personales a terceros. Únicamente los compartimos en los siguientes supuestos:</p>
+    <ul>
+      <li><strong>Proveedores de servicios:</strong> plataformas de pago, servicios de hosting y herramientas de análisis, que actúan como encargados del tratamiento bajo contratos de confidencialidad.</li>
+      <li><strong>Obligación legal:</strong> cuando una autoridad competente lo requiera mediante resolución judicial o mandato legal.</li>
+      <li><strong>Seguridad de la plataforma:</strong> en casos de fraude, abuso grave o amenaza a la integridad de la comunidad.</li>
+    </ul>
+  </div>
+
+  <div class="section" id="p7">
+    <div class="section-header">
+      <span class="section-num">VII</span>
+      <span class="section-title">Conservación de Datos</span>
+      <span class="divider"></span>
+    </div>
+    <p>Conservamos tus datos personales durante el tiempo estrictamente necesario para cumplir con las finalidades para las que fueron recogidos:</p>
+    <ul>
+      <li>Los datos de cuenta se conservan mientras mantengas tu cuenta activa.</li>
+      <li>Los datos de compra se conservan durante el período exigido por la normativa fiscal y mercantil aplicable (generalmente 5 años).</li>
+      <li>Tras la cancelación de la cuenta, los datos se anonimizarán o eliminarán en un plazo máximo de 30 días, salvo obligación legal de conservarlos.</li>
+    </ul>
+  </div>
+
+  <div class="section" id="p8">
+    <div class="section-header">
+      <span class="section-num">VIII</span>
+      <span class="section-title">Tus Derechos</span>
+      <span class="divider"></span>
+    </div>
+    <p>Como usuario, tienes los siguientes derechos sobre tus datos personales, que puedes ejercer en cualquier momento contactando con nosotros:</p>
+
+    <div class="rights-grid">
+      <div class="right-card">
+        <div class="right-card-title">Acceso</div>
+        <p>Conocer qué datos tuyos tenemos y cómo los usamos.</p>
+      </div>
+      <div class="right-card">
+        <div class="right-card-title">Rectificación</div>
+        <p>Corregir datos inexactos o incompletos.</p>
+      </div>
+      <div class="right-card">
+        <div class="right-card-title">Supresión</div>
+        <p>Solicitar la eliminación de tus datos cuando no sean necesarios.</p>
+      </div>
+      <div class="right-card">
+        <div class="right-card-title">Oposición</div>
+        <p>Oponerte a determinados tratamientos basados en interés legítimo.</p>
+      </div>
+      <div class="right-card">
+        <div class="right-card-title">Portabilidad</div>
+        <p>Recibir tus datos en un formato estructurado y reutilizable.</p>
+      </div>
+      <div class="right-card">
+        <div class="right-card-title">Limitación</div>
+        <p>Solicitar que suspendamos el tratamiento en determinadas circunstancias.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:1.2rem;">También tienes derecho a presentar una reclamación ante la <strong>Agencia Española de Protección de Datos (AEPD)</strong> si consideras que tus derechos no han sido atendidos correctamente.</p>
+  </div>
+
+  <div class="section" id="p9">
+    <div class="section-header">
+      <span class="section-num">IX</span>
+      <span class="section-title">Seguridad</span>
+      <span class="divider"></span>
+    </div>
+    <p>Aplicamos medidas técnicas y organizativas adecuadas para proteger tus datos frente a accesos no autorizados, pérdida, destrucción o divulgación. Entre ellas:</p>
+    <ul>
+      <li>Cifrado de contraseñas mediante algoritmos seguros.</li>
+      <li>Conexiones cifradas mediante protocolo HTTPS.</li>
+      <li>Acceso restringido a los datos a personal autorizado.</li>
+      <li>Revisiones periódicas de seguridad de la plataforma.</li>
+    </ul>
+    <p>No obstante, ningún sistema es completamente infalible. En caso de brecha de seguridad que afecte a tus datos, te notificaremos conforme a lo establecido en la normativa vigente.</p>
+  </div>
+
+  <div class="section" id="p10">
+    <div class="section-header">
+      <span class="section-num">X</span>
+      <span class="section-title">Menores de Edad</span>
+      <span class="divider"></span>
+    </div>
+    <p>La plataforma de Reino Oscuro está dirigida a mayores de <strong>14 años</strong>. No recogemos conscientemente datos personales de menores de esa edad sin el consentimiento verificable de sus padres o tutores legales.</p>
+    <p>Si detectamos que hemos recopilado datos de un menor sin el consentimiento adecuado, procederemos a eliminarlos de forma inmediata.</p>
+    <div class="warn-box">
+      Si eres padre, madre o tutor y crees que tu hijo menor de 14 años ha creado una cuenta sin tu permiso, contáctanos de inmediato para gestionar la eliminación de su cuenta y datos.
+    </div>
+  </div>
+
+  <div class="section" id="p11">
+    <div class="section-header">
+      <span class="section-num">XI</span>
+      <span class="section-title">Cambios en esta Política</span>
+      <span class="divider"></span>
+    </div>
+    <p>Podemos actualizar esta Política de Privacidad en cualquier momento para reflejar cambios en nuestras prácticas, en la normativa aplicable o en los servicios que ofrecemos. Publicaremos la versión actualizada en esta página indicando la fecha de revisión.</p>
+    <p>Si los cambios son significativos, te lo notificaremos a través de un aviso visible en la plataforma o mediante un correo electrónico a la dirección asociada a tu cuenta.</p>
+  </div>
+
+  <div class="section" id="p12">
+    <div class="section-header">
+      <span class="section-num">XII</span>
+      <span class="section-title">Contacto</span>
+      <span class="divider"></span>
+    </div>
+    <p>Para cualquier consulta relacionada con esta Política de Privacidad, el ejercicio de tus derechos o cualquier incidencia en materia de protección de datos, puedes contactar con el equipo de Reino Oscuro a través de los canales oficiales de la comunidad:</p>
+    <ul>
+      <li>Formulario de contacto en la web</li>
+      <li>Foro oficial de la comunidad</li>
+      <li>Canales de comunicación indicados en el sitio</li>
+    </ul>
+    <p>Nos comprometemos a responder a tu solicitud en un plazo máximo de <strong>30 días hábiles</strong>.</p>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2026 Reino Oscuro Gaming</span> — Todos los derechos reservados
+  <br><br>
+  <a href="terminos-de-servicio.html" style="font-size:0.75rem; letter-spacing:0.1em; border:none; color: var(--text-dim);">← Términos de Servicio</a>
+</footer>
+
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">↑</button>
+
+</body>
+</html>
